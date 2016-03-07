@@ -4,12 +4,15 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.junit.Test;
+
 import fr.tbr.iamcore.datamodel.Identity;
 import fr.tbr.iamcore.services.dao.impl.IdentityXMLDAO;
 
 public class IdentitiesXMLTests {
 
-	public static void main(String[] args) throws ParserConfigurationException, IOException {
+	@Test
+	public void testXmlDAO() throws ParserConfigurationException, IOException {
 
 //		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 //		DocumentBuilder db = dbf.newDocumentBuilder();

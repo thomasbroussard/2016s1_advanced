@@ -46,7 +46,7 @@ public class IdentityXMLDAO  implements IdentityDAOInterface{
 			db = dbf.newDocumentBuilder();
 			this.doc = db.newDocument();
 			this.doc.appendChild(this.doc.createElement("identities"));
-			File file = new File("/identities/identities.xml");
+			File file = new File("identities.xml");
 			file.createNewFile();
 			this.writer = new PrintWriter(file);
 			TransformerFactory tf = TransformerFactory.newInstance();
