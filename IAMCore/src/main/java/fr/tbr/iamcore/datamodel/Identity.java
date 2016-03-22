@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,6 +20,7 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
+@Table(name="IDENTITIES")
 public class Identity {
 	
 	@Id
@@ -28,7 +30,7 @@ public class Identity {
 	@Column(name="IDENTITY_FIRSTNAME")
 	private String firstName;
 	
-	@Column(name="IDENTITY_FIRSTNAME")
+	@Column(name="IDENTITY_LASTNAME")
 	private String lastName;
 	
 	@Column(name="IDENTITY_EMAIL")
@@ -38,6 +40,10 @@ public class Identity {
 	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 	
+	
+	public Identity(){
+		
+	}
 	
 	public Identity(String firstName, String lastName, String email) {
 		super();

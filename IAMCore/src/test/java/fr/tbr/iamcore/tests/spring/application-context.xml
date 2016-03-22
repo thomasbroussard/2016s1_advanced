@@ -18,8 +18,8 @@
     <bean id="dataSourceBean" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
 		<property name="url" value="jdbc:derby://localhost:1527/IAM;create=true"/>
-		<property name="username" value="root"/>
-		<property name="password" value="password"/>
+		<property name="username" value="tom"/>
+		<property name="password" value="tom"/>
 	</bean>
 	
 
@@ -27,7 +27,7 @@
 	<bean id="beanBasedSessionFactory"	class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSourceBean" />
 		<property name="hibernateProperties" ref="hibernateProperties" />
-		<property name="packagesToScan" value="fr.natsystem.natorb.test.datamodel" />
+		<property name="packagesToScan" value="fr.tbr.iamcore.datamodel" />
 	</bean>
 	
 	
@@ -36,7 +36,7 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.connection.autocommit">false</prop>
 			</props>
 		</property>
