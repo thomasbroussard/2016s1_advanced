@@ -13,21 +13,82 @@ import fr.tbr.iamcore.datamodel.Identity;
 import fr.tbr.iamcore.services.dao.IdentityDAOInterface;
 
 public class IdentityJDBCDAO implements IdentityDAOInterface {
+	
+	private String driverClassName;
+	private String url;
+	private String user;
+	private String password;
+	
+	/**
+	 * @return the driverClassName
+	 */
+	public final String getDriverClassName() {
+		return driverClassName;
+	}
+
+	/**
+	 * @param driverClassName the driverClassName to set
+	 */
+	public final void setDriverClassName(String driverClassName) {
+		this.driverClassName = driverClassName;
+	}
+
+	/**
+	 * @return the url
+	 */
+	public final String getUrl() {
+		return url;
+	}
+
+	/**
+	 * @param url the url to set
+	 */
+	public final void setUrl(String url) {
+		this.url = url;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public final String getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public final void setUser(String user) {
+		this.user = user;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public final String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public final void setPassword(String password) {
+		this.password = password;
+	}
 
 	public IdentityJDBCDAO() {
 
 	}
 
-	private static Connection getConnection() throws ClassNotFoundException,
+	private Connection getConnection() throws ClassNotFoundException,
 			SQLException {
 		// 1-Set up the driver
-		Class.forName("org.apache.derby.jdbc.ClientDriver");
+		Class.forName(this.driverClassName);
 
 		// 2-Prepare the connection
-		String url = "jdbc:derby://localhost:1527/IAM;create=true";
+		String url = this.url;
 
 		// 3-connect
-		Connection connection = DriverManager.getConnection(url, "tom", "tom");
+		Connection connection = DriverManager.getConnection(url, this.user, this.password);
 		return connection;
 	}
 

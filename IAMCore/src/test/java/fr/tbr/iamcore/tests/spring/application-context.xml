@@ -6,6 +6,43 @@
 	   					   
 	   					   
 
-    <bean id="firstDAO" class="fr.tbr.iamcore.services.dao.impl.IdentityJDBCDAO"></bean>
+    <bean id="firstDAO" class="fr.tbr.iamcore.services.dao.impl.IdentityJDBCDAO">
+    	<property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
+    	<property name="url" value="jdbc:derby://localhost:1527/IAM;create=true" />
+    	<property name="user" value="tom" />
+    	<property name="password" value="tom" />
+    </bean>
+    
+    <!-- @Autowired -->
+    <!-- DataSource ds -->
+    <bean id="dataSourceBean" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
+		<property name="url" value="jdbc:derby://localhost:1527/IAM;create=true"/>
+		<property name="username" value="root"/>
+		<property name="password" value="password"/>
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean" id="hibernateProperties">
+		<property name="properties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- <bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>
+				classpath:hibernateTestTemp.cfg.xml
+			</value>
+		</property>
+	</bean> -->
+    
+    
+    
+    
 
 </beans>
