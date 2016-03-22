@@ -22,16 +22,27 @@
 		<property name="password" value="password"/>
 	</bean>
 	
+
+	
+	<bean id="beanBasedSessionFactory"	class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean" />
+		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="packagesToScan" value="fr.natsystem.natorb.test.datamodel" />
+	</bean>
+	
+	
 	<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean" id="hibernateProperties">
 		<property name="properties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">none</prop>
 				<prop key="hibernate.connection.autocommit">false</prop>
 			</props>
 		</property>
 	</bean>
+	
+	
 	<!-- <bean id="mySessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="configLocation">

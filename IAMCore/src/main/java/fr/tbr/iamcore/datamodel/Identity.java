@@ -5,17 +5,37 @@ package fr.tbr.iamcore.datamodel;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  * @author Tom
  *
  */
+
+@Entity
 public class Identity {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
+	@Column(name="IDENTITY_FIRSTNAME")
 	private String firstName;
+	
+	@Column(name="IDENTITY_FIRSTNAME")
 	private String lastName;
+	
+	@Column(name="IDENTITY_EMAIL")
 	private String email;
+	
+	@Column(name="IDENTITY_BIRTHDATE")
+	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 	
 	
